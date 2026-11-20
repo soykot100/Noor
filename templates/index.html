@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Noor — আপনার মন আজ কেমন? · How is your heart today?{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-greet" data-i18n="bn">আপনার মন আজ কেমন?</p>
+    <p class="hero-greet en" data-i18n="en">How is your heart today?</p>
+
+    <p class="hero-sub">
+      <span class="bn">একটি ফ্রি, গোপনীয়, বিচারহীন জায়গা। বাংলা বা ইংরেজিতে কথা বলুন।
+      সায়েন্স আর সহানুভূতি সবসময় আছে; আধ্যাত্মিক প্রতিফলন শুধু আপনি চাইলেই।</span>
+      <span class="en">A free, anonymous, non-judgmental space. Talk in Bangla or English.
+      Science and compassion are always here; spiritual reflection is only if you want it.</span>
+    </p>
+
+    <div class="hero-cta">
+      <a href="{{ url_for('noor.chat') }}" class="btn btn-primary btn-lg">
+        <span class="bn">শুরু করুন</span>
+        <span class="en">Begin</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="{{ url_for('noor.about') }}" class="btn btn-ghost">
+        <span class="bn">আগে জানুন</span>
+        <span class="en">Learn more</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Three pillars -->
+<section class="pillars">
+  <h2 class="section-title">
+    <span class="bn">তিনটি স্তম্ভ</span>
+    <span class="en">Three pillars</span>
+  </h2>
+  <div class="pillar-grid">
+    <article class="pillar">
+      <div class="pillar-icon science" aria-hidden="true">🌿</div>
+      <h3><span class="bn">সায়েন্স</span><span class="en">Science</span></h3>
+      <p class="bn">CBT-অনুপ্রাণিত কৌশল, শ্বাসপ্রশ্বাস, গ্রাউন্ডিং — প্রমাণ-ভিত্তিক।</p>
+      <p class="en">CBT-inspired tools, breathing, grounding — evidence-based.</p>
+    </article>
+    <article class="pillar">
+      <div class="pillar-icon compassion" aria-hidden="true">🤲</div>
+      <h3><span class="bn">সহানুভূতি</span><span class="en">Compassion</span></h3>
+      <p class="bn">শুনি বিচারহীনভাবে। সাধারণ ভাষায় কথা বলি। রোগ নির্ণয় করি না।</p>
+      <p class="en">Listening without judgment. Plain words. Never diagnosing.</p>
+    </article>
+    <article class="pillar">
+      <div class="pillar-icon faith" aria-hidden="true">🕊️</div>
+      <h3><span class="bn">আধ্যাত্মিকতা</span><span class="en">Spirituality</span></h3>
+      <p class="bn">ঐচ্ছিক। ইসলাম, হিন্দু, বৌদ্ধ, খ্রিস্ট — বা কোনো ধর্ম ছাড়াই।</p>
+      <p class="en">Optional. Islam, Hindu, Buddhist, Christian — or none.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Promise -->
+<section class="promise">
+  <h2 class="section-title">
+    <span class="bn">আমাদের প্রতিশ্রুতি</span>
+    <span class="en">Our promise</span>
+  </h2>
+  <ul class="promise-list">
+    <li><span class="bn">আপনার কথা বিক্রি করি না।</span><span class="en">We never sell your conversations.</span></li>
+    <li><span class="bn">অপ্রয়োজনীয় ব্যক্তিগত তথ্য নেই না।</span><span class="en">No unnecessary personal data.</span></li>
+    <li><span class="bn">সব তথ্য আপনার ব্রাউজারেই থাকে।</span><span class="en">Your data stays in your browser.</span></li>
+    <li><span class="bn">কোনো ধর্মগ্রন্থের উদ্ধৃতি আমরা বানাই না।</span><span class="en">We never invent scripture.</span></li>
+    <li><span class="bn">সংকটে আমরা পাশে থাকি, সরিয়ে দেই না।</span><span class="en">In crisis, we stay — we don't push you away.</span></li>
+  </ul>
+</section>
+
+<!-- Quick choose card -->
+<section class="quick-choose">
+  <div class="card">
+    <h3>
+      <span class="bn">একটু সেট করে নিন</span>
+      <span class="en">A quick setup</span>
+    </h3>
+    <p class="muted">
+      <span class="bn">ভাষা, মুড, আর ধর্ম — সব পরে বদলানো যায়।</span>
+      <span class="en">Language, mode, and faith — all changeable later.</span>
+    </p>
+
+    <div class="form-row">
+      <label for="langPick" class="bn">ভাষা</label>
+      <label for="langPick" class="en">Language</label>
+      <select id="langPick" class="select" data-persist="language">
+        <option value="auto">Auto · স্বয়ংক্রিয়</option>
+        <option value="bn">বাংলা</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="modePick" class="bn">মুড</label>
+      <label for="modePick" class="en">Mode</label>
+      <select id="modePick" class="select" data-persist="mode">
+        <option value="holistic"><span class="bn">সম্পূর্ণ</span> · Holistic (science + optional faith)</option>
+        <option value="science">শুধু সায়েন্স · Science only</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="faithPick" class="bn">ধর্ম (ঐচ্ছিক)</label>
+      <label for="faithPick" class="en">Faith (optional)</label>
+      <select id="faithPick" class="select" data-persist="faith">
+        <option value="none">none · কোনোটাই নয়</option>
+        <option value="islam">Islam · ইসলাম</option>
+        <option value="hinduism">Hinduism · হিন্দু</option>
+        <option value="buddhism">Buddhism · বৌদ্ধ</option>
+        <option value="christianity">Christianity · খ্রিস্ট</option>
+      </select>
+      <p class="muted small">
+        <span class="bn">ধর্ম শুধু আপনি চাইলেই যোগ হয়। নাম, ভাষা, জায়গা থেকে অনুমান করি না।</span>
+        <span class="en">Faith joins only if you choose it. Never inferred from name, language, or place.</span>
+      </p>
+    </div>
+
+    <a href="{{ url_for('noor.chat') }}" class="btn btn-primary btn-block">
+      <span class="bn">সেভ করে শুরু করুন</span>
+      <span class="en">Save and begin</span>
+    </a>
+  </div>
+</section>
+{% endblock %}

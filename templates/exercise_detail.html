@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ ex.title_en }} · Noor{% endblock %}
+
+{% block content %}
+<section class="ex-detail">
+  <a href="{{ url_for('noor.exercises_page') }}" class="back-link">← <span class="bn">সব অনুশীলন</span><span class="en">All exercises</span></a>
+
+  <div class="ex-detail-head card">
+    <span class="ex-cat-pill">{{ ex.category }}</span>
+    <h1 class="bn">{{ ex.title_bn }}</h1>
+    <h1 class="en">{{ ex.title_en }}</h1>
+    <p class="muted small">⏱ {{ ex.duration_min }} min · {{ ex.themes | join(', ') }}</p>
+    <p class="bn">{{ ex.why_bn }}</p>
+    <p class="en">{{ ex.why_en }}</p>
+  </div>
+
+  <div class="ex-steps card">
+    <h2 class="bn">ধাপসমূহ</h2>
+    <h2 class="en">Steps</h2>
+    <ol class="steps">
+      {% for s in ex.steps_bn %}
+        <li><span class="bn">{{ s }}</span><span class="en hidden">{{ ex.steps_en[loop.index0] }}</span></li>
+      {% endfor %}
+    </ol>
+    <p class="ex-lang-toggle muted small">
+      <span class="bn">ইংরেজিতে দেখুন</span><span class="en hidden">Switch to Bangla</span>
+    </p>
+  </div>
+
+  <div class="ex-actions">
+    <a href="{{ url_for('noor.chat') }}" class="btn btn-primary">
+      <span class="bn">কথা বলতে যান</span>
+      <span class="en">Go to chat</span>
+    </a>
+    <a href="{{ url_for('noor.exercises_page') }}" class="btn btn-ghost">
+      <span class="bn">আরেকটা</span>
+      <span class="en">Pick another</span>
+    </a>
+  </div>
+</div>
+{% endblock %}

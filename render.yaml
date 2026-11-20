@@ -1,0 +1,34 @@
+# ============================================================
+# Project Noor - Render deployment config
+# ============================================================
+# After pushing this repo to GitHub, go to:
+#   https://render.com → New → Blueprint → select this repo.
+# Render reads this file and creates the service automatically.
+#
+# The app needs NO database for the MVP (truly anonymous:
+# chat history and mood data live in the browser only).
+# Add the following env vars in the Render dashboard (Environment tab):
+#   LLM_PROVIDER    (groq — FREE, default. Set in this file.)
+#   LLM_API_KEY     (your free Groq key from console.groq.com/keys)
+#   SECRET_KEY      (generate a long random string)
+# ============================================================
+
+services:
+  - type: web
+    name: noor
+    runtime: python
+    region: singapore   # closest region to Bangladesh
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()" --workers 2 --threads 4 --timeout 60
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: LLM_PROVIDER
+        value: groq
+      - key: SECRET_KEY
+        sync: false   # set manually in the dashboard
+      - key: LLM_API_KEY
+        sync: false   # set manually — your free Groq key from console.groq.com/keys
+    autoDeploy: true

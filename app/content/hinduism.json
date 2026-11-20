@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "tradition": "Hinduism",
+    "anchors": "Bhagavad Gita, meditation and mindfulness practices",
+    "status": "SAMPLE — Pending Scholar Review",
+    "version": "0.1.0",
+    "last_reviewed": null,
+    "reviewers_required": "1 Hindu scholar/pandit + 1 mental-health-literate reviewer",
+    "psychologist_review": "Pending",
+    "note": "These passages are widely published and are included as placeholders so the system can be tested end-to-end. They MUST be verified by qualified scholars before public launch. Do not deploy to real users in this state."
+  },
+  "passages": [
+    {
+      "id": "hinduism-001",
+      "source": "Bhagavad Gita",
+      "citation": "Bhagavad Gita 2.47",
+      "text_en": "You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself the cause of the results of your activities, nor be attached to not doing your duty.",
+      "text_bn": "তোমার কর্তব্য কর্ম করার অধিকার আছে, কিন্তু কর্মের ফলে তোমার কোনো অধিকার নেই। কখনো নিজেকে কর্মফলের কারণ মনে করো না, আবার কর্তব্য না করার প্রতিও আসক্ত হয়ো না।",
+      "context_note": "A reminder to keep doing what is right even when the result is out of our hands — a relief from the burden of controlling outcomes, not a demand to be indifferent.",
+      "themes": ["anxiety", "patience", "anger"],
+      "priority": 1
+    },
+    {
+      "id": "hinduism-002",
+      "source": "Bhagavad Gita",
+      "citation": "Bhagavad Gita 2.48",
+      "text_en": "Be steadfast in yoga, O Arjuna. Perform your duty without attachment, and remain equanimous in success and failure. This evenness of mind is called yoga.",
+      "text_bn": "হে অর্জুন, যোগে অবিচল থাকো। আসক্তি ছাড়া কর্তব্য সম্পাদন করো, আর সাফল্য বা ব্যর্থতা উভয়ে সমচিত্তে থাকো। এই সমতা-ভাবনাই যোগ।",
+      "context_note": "An invitation to steadiness of mind amid ups and downs — companionship for someone thrown around by circumstances.",
+      "themes": ["anxiety", "patience", "fear"],
+      "priority": 2
+    },
+    {
+      "id": "hinduism-003",
+      "source": "Bhagavad Gita",
+      "citation": "Bhagavad Gita 6.5-6",
+      "text_en": "Lift up the self by the Self, and do not let the self sink; for the self alone is the friend of the self, and the self alone is the enemy of the self.",
+      "text_bn": "নিজের আত্মাকে নিজের আত্মা দিয়েই উন্নত করো, আর নিজেকে পতিত হতে দিয়ো না। কারণ আত্মাই নিজের মিত্র, আর আত্মাই নিজের শত্রু।",
+      "context_note": "An image of self-compassion and inner friendship — the way we speak to ourselves matters. Not a blame for low mood; a quiet call to be a friend to oneself.",
+      "themes": ["loneliness", "forgiveness", "hope"],
+      "priority": 3
+    },
+    {
+      "id": "hinduism-004",
+      "source": "Bhagavad Gita",
+      "citation": "Bhagavad Gita 18.66",
+      "text_en": "Abandon all varieties of religion and just surrender unto Me. I shall liberate you from all sins. Do not fear.",
+      "text_bn": "সব ধরনের ধর্ম ত্যাগ করে শুধু আমারই শরণাগত হও। আমি তোমাকে সকল পাপ থেকে মুক্ত করব। ভয় করো না।",
+      "context_note": "A closing reassurance that surrender brings protection, not punishment — 'do not fear' offered directly to a worried heart.",
+      "themes": ["fear", "anxiety", "hope"],
+      "priority": 4
+    },
+    {
+      "id": "hinduism-005",
+      "source": "Bhagavad Gita",
+      "citation": "Bhagavad Gita 9.34",
+      "text_en": "Engage your mind always in thinking of Me, become My devotee, offer obeisances to Me and worship Me. Being thus completely absorbed in Me, you will come to Me.",
+      "text_bn": "তোমার মন সর্বদা আমার চিন্তায় নিযুক্ত রাখো, আমার ভক্ত হও, আমাকে প্রণাম করো ও আমার উপাসনা করো। এভাবে আমাতে সম্পূর্ণ নিমগ্ন হয়ে তুমি আমার কাছে আসবে।",
+      "context_note": "A devotional anchor for someone seeking a felt presence in lonely moments. Not a replacement for community or professional care.",
+      "themes": ["loneliness", "gratitude", "hope"],
+      "priority": 5
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Noor · {{ code }} {{ message_en }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>{{ code }}</h1>
+  <p class="bn">{{ message_bn }}</p>
+  <p class="en">{{ message_en }}</p>
+  <a href="{{ url_for('noor.index') }}" class="btn btn-primary">
+    <span class="bn">হোমে ফিরুন</span><span class="en">Back home</span>
+  </a>
+</section>
+{% endblock %}

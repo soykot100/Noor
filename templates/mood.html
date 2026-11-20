@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Noor · মুড · Mood{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>
+    <span class="bn">মুড চেক-ইন</span>
+    <span class="en">Mood check-in</span>
+  </h1>
+  <p class="muted">
+    <span class="bn">আপনার মুড শুধু আপনার ব্রাউজারে থাকে। কোথাও পাঠানো হয় না।</span>
+    <span class="en">Your mood stays only in your browser. It is never sent anywhere.</span>
+  </p>
+</section>
+
+<div class="mood-card card">
+  <h2 class="bn">আজ মন কেমন?</h2>
+  <h2 class="en">How do you feel today?</h2>
+
+  <div class="mood-scale" id="moodScale">
+    <button type="button" class="mood-opt" data-value="1" aria-label="Very low">😞<span class="bn">খুব খারাপ</span><span class="en">Very low</span></button>
+    <button type="button" class="mood-opt" data-value="2" aria-label="Low">😟<span class="bn">খারাপ</span><span class="en">Low</span></button>
+    <button type="button" class="mood-opt" data-value="3" aria-label="Okay">😐<span class="bn">মোটামুটি</span><span class="en">Okay</span></button>
+    <button type="button" class="mood-opt" data-value="4" aria-label="Good">🙂<span class="bn">ভালো</span><span class="en">Good</span></button>
+    <button type="button" class="mood-opt" data-value="5" aria-label="Great">😊<span class="bn">খুব ভালো</span><span class="en">Great</span></button>
+  </div>
+
+  <div class="form-row">
+    <label for="moodNote" class="bn">কিছু লিখতে চান? (ঐচ্ছিক)</label>
+    <label for="moodNote" class="en">Want to note something? (optional)</label>
+    <textarea id="moodNote" class="msg-input" rows="2" maxlength="500"
+      placeholder="একটা শব্দ বা একটা বাক্য… · A word or a line…"></textarea>
+  </div>
+
+  <button class="btn btn-primary btn-block" id="moodSave">
+    <span class="bn">সেভ করুন</span><span class="en">Save</span>
+  </button>
+  <p class="muted small" id="moodStatus"></p>
+</div>
+
+<div class="mood-history card">
+  <h2 class="bn">সাম্প্রতিক রেকর্ড</h2>
+  <h2 class="en">Recent entries</h2>
+  <div id="moodChart" class="mood-chart"></div>
+  <ul id="moodList" class="mood-list"></ul>
+  <div class="ex-actions">
+    <button class="btn btn-ghost btn-sm" id="moodExport">
+      <span class="bn">JSON হিসেবে ডাউনলোড</span><span class="en">Download as JSON</span>
+    </button>
+    <button class="btn btn-ghost btn-sm danger" id="moodClear">
+      <span class="bn">মুছে ফেলুন</span><span class="en">Delete all</span>
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/mood.js') }}"></script>
+{% endblock %}

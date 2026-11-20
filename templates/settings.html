@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}Noor · সেটিংস · Settings{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>
+    <span class="bn">সেটিংস</span>
+    <span class="en">Settings</span>
+  </h1>
+  <p class="muted">
+    <span class="bn">সব পরিবর্তন আপনার ব্রাউজারেই সেভ হয়। সার্ভারে কিছু যায় না।</span>
+    <span class="en">All changes are saved in your browser. Nothing is sent to the server.</span>
+  </p>
+</section>
+
+<div class="card settings-card">
+  <h2 class="bn">পছন্দ</h2><h2 class="en">Preferences</h2>
+
+  <div class="form-row">
+    <label for="sLang" class="bn">ভাষা</label><label for="sLang" class="en">Language</label>
+    <select id="sLang" class="select" data-persist="language">
+      <option value="auto">Auto · স্বয়ংক্রিয়</option>
+      <option value="bn">বাংলা</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="sMode" class="bn">মুড</label><label for="sMode" class="en">Mode</label>
+    <select id="sMode" class="select" data-persist="mode">
+      <option value="holistic">Holistic · সম্পূর্ণ (science + optional faith)</option>
+      <option value="science">Science only · শুধু সায়েন্স</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="sFaith" class="bn">ধর্ম (ঐচ্ছিক)</label><label for="sFaith" class="en">Faith (optional)</label>
+    <select id="sFaith" class="select" data-persist="faith">
+      <option value="none">None · কোনোটাই নয়</option>
+      <option value="islam">Islam</option>
+      <option value="hinduism">Hinduism</option>
+      <option value="buddhism">Buddhism</option>
+      <option value="christianity">Christianity</option>
+    </select>
+    <p class="muted small">
+      <span class="bn">যেকোনো সময় বদলানো যায়। নাম বা ভাষা থেকে অনুমান করি না।</span>
+      <span class="en">Changeable any time. Never inferred from name or language.</span>
+    </p>
+  </div>
+
+  <div class="form-row">
+    <label for="sTheme" class="bn">থিম</label><label for="sTheme" class="en">Theme</label>
+    <select id="sTheme" class="select" data-persist="theme">
+      <option value="light">Light · হালকা</option>
+      <option value="dark">Dark · গাঢ়</option>
+      <option value="system">System · সিস্টেম</option>
+    </select>
+  </div>
+</div>
+
+<div class="card settings-card danger-card">
+  <h2 class="bn">আপনার ডেটা</h2><h2 class="en">Your data</h2>
+  <p class="muted">
+    <span class="bn">আপনার সব কথা ও মুড রেকর্ড শুধু এই ব্রাউজারে আছে। এক ক্লিকে মুছে ফেলুন।</span>
+    <span class="en">All your chats and mood records live only in this browser. Wipe them in one click.</span>
+  </p>
+  <button class="btn btn-ghost danger" id="delChat">
+    <span class="bn">সব কথা মুছুন</span><span class="en">Delete all chats</span>
+  </button>
+  <button class="btn btn-ghost danger" id="delMood">
+    <span class="bn">সব মুড রেকর্ড মুছুন</span><span class="en">Delete all mood records</span>
+  </button>
+  <button class="btn btn-ghost danger" id="delAll">
+    <span class="bn">সব মুছুন (ডেটা ও পছন্দ)</span><span class="en">Delete everything (data + preferences)</span>
+  </button>
+  <p class="muted small" id="delStatus"></p>
+</div>
+
+<div class="card settings-card" id="llm">
+  <h2 class="bn">AI স্ট্যাটাস · বিল্ড</h2><h2 class="en">AI status · build info</h2>
+  <p id="buildInfo" class="muted small">যাচাই হচ্ছে… · checking…</p>
+  <div class="ex-actions" style="margin-top:.75rem;">
+    <button class="btn btn-primary btn-sm" id="llmTestBtn" type="button">
+      <span class="bn">LLM টেস্ট করুন</span><span class="en">Test the LLM</span>
+    </button>
+  </div>
+  <p id="llmTestResult" class="muted small" style="margin-top:.5rem;white-space:pre-wrap;"></p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+<script>
+// Show the live AI status from /api/debug (no key is ever exposed).
+fetch('/api/debug').then(r=>r.json()).then(d=>{
+  var el = document.getElementById('buildInfo');
+  var mode = d.demo_mode ? '⚠️ DEMO (কোনো key লোড হয়নি · no key loaded)'
+                         : '✓ LIVE';
+  el.innerHTML =
+    'মোড: ' + mode +
+    '<br>provider: <strong>' + d.provider + '</strong>' +
+    ' · model: <strong>' + d.model + '</strong>' +
+    '<br>base_url: ' + (d.base_url || '(SDK default)') +
+    '<br>key_loaded: ' + (d.key_loaded ? 'হ্যাঁ · yes (' + d.key_prefix + ')' : 'না · no') +
+    '<br><em>' + d.hint + '</em>';
+  var btn = document.getElementById('llmTestBtn');
+  btn.disabled = d.demo_mode;  // can't test without a key
+}).catch(()=>{
+  document.getElementById('buildInfo').textContent = 'স্ট্যাটাস আনা যায়নি · failed to load';
+});
+
+// Test-LLM button: makes ONE real call and shows the result or the exact error.
+document.getElementById('llmTestBtn').addEventListener('click', function(){
+  var out = document.getElementById('llmTestResult');
+  var btn = this;
+  out.textContent = 'টেস্ট হচ্ছে… · testing…';
+  btn.disabled = true;
+  fetch('/api/llm-test').then(r=>r.json()).then(d=>{
+    btn.disabled = false;
+    if (d.ok) {
+      out.innerHTML = '✓ <strong>সফল</strong> · <strong>success</strong><br>' +
+        'model: ' + d.model + '<br>reply: "' + d.reply + '"<br>সময় · time: ' + d.ms + ' ms';
+    } else {
+      out.innerHTML = '✗ ' + (d.error || 'unknown error');
+    }
+  }).catch(e=>{
+    btn.disabled = false;
+    out.textContent = 'নেটওয়ার্ক ত্রুটি · network error: ' + e;
+  });
+});
+</script>
+{% endblock %}

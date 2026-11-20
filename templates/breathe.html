@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Noor · শ্বাস · Breathe{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>
+    <span class="bn">একসাথে শ্বাস নিই</span>
+    <span class="en">Let's breathe together</span>
+  </h1>
+  <p class="muted">
+    <span class="bn">বৃত্তটা বড় হলে শ্বাস নিন, ছোট হলে ছাড়ুন। চোখ বন্ধ করেও করতে পারেন।</span>
+    <span class="en">Breathe in as the circle grows, out as it shrinks. Eyes closed is fine.</span>
+  </p>
+</section>
+
+<div class="breathe-wrap">
+  <!-- pattern picker -->
+  <div class="breathe-pick" id="breathePick">
+    <button class="btn btn-ghost btn-sm active" data-pattern="478">4-7-8</button>
+    <button class="btn btn-ghost btn-sm" data-pattern="box">Box 4-4-4-4</button>
+    <button class="btn btn-ghost btn-sm" data-pattern="calm">Calm 4-6</button>
+  </div>
+
+  <!-- the animated circle -->
+  <div class="breathe-stage">
+    <div class="breath-ring" aria-hidden="true"></div>
+    <div class="breath-circle idle" id="breathCircle">
+      <span id="breathHint">
+        <span class="bn">শুরু করুন</span>
+        <span class="en">Press start</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- phase label + count -->
+  <div class="breath-label" id="breathLabel" aria-live="polite">
+    <span class="phase bn">প্রস্তুত</span>
+    <span class="phase en hidden">Ready</span>
+    <span class="count" id="breathCount"></span>
+  </div>
+
+  <!-- controls -->
+  <div class="breathe-controls">
+    <button class="btn btn-primary" id="breatheStart">
+      <span class="bn">শুরু</span><span class="en">Start</span>
+    </button>
+    <button class="btn btn-ghost" id="breatheStop" disabled>
+      <span class="bn">থামুন</span><span class="en">Stop</span>
+    </button>
+  </div>
+
+  <p class="breathe-meta">
+    <span class="bn">চক্র: <span class="breathe-rounds" id="breatheRounds">0</span></span>
+    <span class="en">Rounds: <span class="breathe-rounds" id="breatheRoundsEn">0</span></span>
+  </p>
+</div>
+
+<!-- Why this helps -->
+<div class="card" style="margin-top:1.5rem;">
+  <h2 class="bn">কেন এটা কাজ করে</h2>
+  <h2 class="en">Why this helps</h2>
+  <p class="bn">ধীর শ্বাস স্নায়ুতন্ত্রকে "বিশ্রাম" মোডে নিয়ে যায় (parasympathetic)। ৪-৭-৮ প্যাটার্নে দীর্ঘ শ্বাস ত্যাগ হৃদস্পন্দন ধীর করে, প্যানিক কমায়। মাত্র ৩-৪ চক্রেই পার্থক্য টের পাওয়া যায়।</p>
+  <p class="en">Slow breathing shifts the nervous system into its "rest" mode (parasympathetic). The 4-7-8 pattern's long exhale slows the heart rate and eases panic. You can usually feel a difference in just 3–4 rounds.</p>
+</div>
+
+<!-- pick another exercise -->
+<div class="ex-actions" style="justify-content:center;">
+  <a href="{{ url_for('noor.exercises_page') }}" class="btn btn-ghost">
+    <span class="bn">আরেকটা অনুশীলন</span><span class="en">Another exercise</span>
+  </a>
+  <a href="{{ url_for('noor.chat') }}" class="btn btn-primary">
+    <span class="bn">কথা বলতে যান</span><span class="en">Go to chat</span>
+  </a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/breathe.js') }}"></script>
+{% endblock %}

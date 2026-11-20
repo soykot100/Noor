@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "tradition": "Buddhism",
+    "anchors": "Mindfulness, metta (loving-kindness), karuna (compassion)",
+    "status": "SAMPLE — Pending Scholar Review",
+    "version": "0.1.0",
+    "last_reviewed": null,
+    "reviewers_required": "1 Buddhist teacher/monastic + 1 mental-health-literate reviewer",
+    "psychologist_review": "Pending",
+    "note": "These passages are widely published and are included as placeholders so the system can be tested end-to-end. They MUST be verified by qualified scholars before public launch. Do not deploy to real users in this state."
+  },
+  "passages": [
+    {
+      "id": "buddhism-001",
+      "source": "Dhammapada",
+      "citation": "Dhammapada 1:1-2",
+      "text_en": "Mind precedes all mental states. Mind is their chief; they are all mind-wrought. If with an impure mind a person speaks or acts, suffering follows like the wheel that follows the foot of the ox. If with a pure mind a person speaks or acts, happiness follows like an un-departed shadow.",
+      "text_bn": "মন সকল মানসিক অবস্থার পূর্বে আসে। মনই তাদের প্রধান; তারা সবই মন দ্বারা গঠিত। অশুদ্ধ মনে কেউ কথা বললে বা কাজ করলে দুঃখ অনুসরণ করে, যেমন চালের গাড়ির চাকা বলদের পায়ের পিছে পিছে চলে। শুদ্ধ মনে কেউ কথা বললে বা কাজ করলে সুখ অনুসরণ করে, যেমন ছায়া যে কখনো বিচ্ছিন্ন হয় না।",
+      "context_note": "An observation about how the quality of our thoughts shapes experience — offered as awareness, never as blame for suffering.",
+      "themes": ["anxiety", "anger", "patience"],
+      "priority": 1
+    },
+    {
+      "id": "buddhism-002",
+      "source": "Dhammapada",
+      "citation": "Dhammapada 5",
+      "text_en": "Hatred is never appeased by hatred in this world. By non-hatred alone is hatred appeased. This is an eternal law.",
+      "text_bn": "এই পৃথিবীতে ঘৃণা দিয়ে কখনো ঘৃণা শান্ত হয় না। কেবল ঘৃণা বর্জনের দ্বারাই ঘৃণা শান্ত হয়। এটি এক চিরন্তন নিয়ম।",
+      "context_note": "A timeless reminder for the heart caught in anger or resentment — that meeting pain with kindness is wisdom, not weakness.",
+      "themes": ["anger", "forgiveness", "grief"],
+      "priority": 2
+    },
+    {
+      "id": "buddhism-003",
+      "source": "Karaniya Metta Sutta",
+      "citation": "Karaniya Metta Sutta (Sutta Nipata 1.8)",
+      "text_en": "Even as a mother protects with her life her child, her only child, so with a boundless heart should one cherish all living beings. Radiating kindness over the entire world.",
+      "text_bn": "যেমন একজন মা নিজের জীবন দিয়ে রক্ষা করে তার সন্তানকে—তার একমাত্র সন্তানকে—তেমনি একজন সীমাহীন হৃদয় নিয়ে সকল প্রাণীর প্রতি মৈত্রী পোষণ করবে। সারা বিশ্বে মৈত্রী বিকিরণ করবে।",
+      "context_note": "An image of boundless kindness beginning with how we treat ourselves. A companion for loneliness — one is never truly alone in this circle of care.",
+      "themes": ["loneliness", "gratitude", "hope"],
+      "priority": 3
+    },
+    {
+      "id": "buddhism-004",
+      "source": "Dhammapada",
+      "citation": "Dhammapada 276",
+      "text_en": "You yourselves must strive; the Buddhas only point the way.",
+      "text_bn": "তোমরা নিজেরাই চেষ্টা করতে হবে; বুদ্ধরা কেবল পথ দেখান।",
+      "context_note": "A gentle encouragement that the work is yours to do — but you are not unaided, the path has been shown. Pairs well with small concrete coping steps.",
+      "themes": ["hope", "patience", "anxiety"],
+      "priority": 4
+    }
+  ]
+}

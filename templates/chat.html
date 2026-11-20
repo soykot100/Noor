@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Noor · কথা বলুন · Chat{% endblock %}
+
+{% block content %}
+<div class="chat-wrap">
+  <!-- top control strip -->
+  <div class="chat-controls card">
+    <div class="control-group">
+      <label for="cLang" class="control-label">ভাষা · Language</label>
+      <select id="cLang" class="select" data-persist="language">
+        <option value="auto">Auto · স্বয়ংক্রিয়</option>
+        <option value="bn">বাংলা</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="cMode" class="control-label">মুড · Mode</label>
+      <select id="cMode" class="select" data-persist="mode">
+        <option value="holistic">Holistic · সম্পূর্ণ</option>
+        <option value="science">Science only · শুধু সায়েন্স</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="cFaith" class="control-label">ধর্ম · Faith</label>
+      <select id="cFaith" class="select" data-persist="faith">
+        <option value="none">None · কোনোটাই নয়</option>
+        <option value="islam">Islam</option>
+        <option value="hinduism">Hinduism</option>
+        <option value="buddhism">Buddhism</option>
+        <option value="christianity">Christianity</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- crisis banner (hidden by default, shown when safety.show_help fires) -->
+  <div class="crisis-banner" id="crisisBanner" hidden aria-live="assertive">
+    <div class="crisis-banner-inner">
+      <p class="crisis-banner-title">
+        <span class="bn">আপনি একা নন। একজন মানুষের কণ্ঠ এখনই পান।</span>
+        <span class="en">You are not alone. Reach a human voice right now.</span>
+      </p>
+      <div class="crisis-phones" id="crisisPhones"><!-- filled by JS --></div>
+      <a href="{{ url_for('noor.resources_page') }}#crisis" class="btn btn-crisis">
+        <span class="bn">সব হেল্পলাইন দেখুন</span>
+        <span class="en">See all helplines</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- chat transcript -->
+  <div class="chat-log card" id="chatLog" aria-live="polite" aria-label="Conversation">
+    <div class="msg msg-bot">
+      <div class="msg-avatar" aria-hidden="true">🕊️</div>
+      <div class="msg-bubble">
+        <p class="bn">আপনার মন আজ কেমন? যা ভারী লাগছে, বলুন। আমি এখানে আছি।</p>
+        <p class="en">How is your heart today? Tell me what feels heavy. I'm here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- typing indicator -->
+  <div class="typing" id="typing" hidden>
+    <span></span><span></span><span></span>
+    <span class="bn">নূর ভাবছে…</span>
+    <span class="en">Noor is thinking…</span>
+  </div>
+
+  <!-- input area -->
+  <form class="chat-input" id="chatForm" autocomplete="off">
+    <textarea id="msgInput" class="msg-input"
+      rows="2" maxlength="2000"
+      placeholder="যা মনে আসছে, লিখুন… · Type what's on your mind…"
+      aria-label="Message"></textarea>
+    <button type="submit" class="btn btn-primary" id="sendBtn" aria-label="Send">
+      <span class="bn">পাঠান</span>
+      <span class="en">Send</span>
+    </button>
+  </form>
+
+  <div class="chat-foot">
+    <button class="btn btn-ghost btn-sm" id="actionPlanBtn">
+      <span class="bn">এই কথার সারাংশ ও পরবর্তী পদক্ষেপ</span>
+      <span class="en">Summarize & next steps</span>
+    </button>
+    <button class="btn btn-ghost btn-sm" id="clearChatBtn">
+      <span class="bn">কথা মুছুন</span>
+      <span class="en">Clear conversation</span>
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

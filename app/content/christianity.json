@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "tradition": "Christianity",
+    "anchors": "Bible passages, prayer, forgiveness",
+    "status": "SAMPLE — Pending Scholar Review",
+    "version": "0.1.0",
+    "last_reviewed": null,
+    "reviewers_required": "1 Christian clergy/scholar + 1 mental-health-literate reviewer",
+    "psychologist_review": "Pending",
+    "note": "These passages are widely published and are included as placeholders so the system can be tested end-to-end. They MUST be verified by qualified scholars before public launch. Do not deploy to real users in this state."
+  },
+  "passages": [
+    {
+      "id": "christianity-001",
+      "source": "Bible (ESV)",
+      "citation": "Psalm 23:4",
+      "text_en": "Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me; your rod and your staff, they comfort me.",
+      "text_bn": "যদিও আমি মৃত্যুছায়ার উপত্যকার মধ্য দিয়ে হাঁটি, তবু কোনো অনিষ্টকে ভয় করব না, কারণ আপনি আমার সঙ্গে আছেন; আপনার লাঠি ও আপনার ছড়ি—এগুলোই আমাকে সান্ত্বনা দেয়।",
+      "context_note": "A psalm of companionship through the darkest places. 'You are with me' — presence, not absence, in the valley.",
+      "themes": ["fear", "grief", "loneliness"],
+      "priority": 1
+    },
+    {
+      "id": "christianity-002",
+      "source": "Bible (ESV)",
+      "citation": "Matthew 11:28",
+      "text_en": "Come to me, all who labor and are heavy laden, and I will give you rest.",
+      "text_bn": "আমার কাছে আসো, যারা ক্লান্ত ও বোঝা বহন করছ—আমি তোমাদের বিশ্রাম দেব।",
+      "context_note": "An open invitation to the weary, naming tiredness as something real that deserves rest. Not a demand to push through.",
+      "themes": ["anxiety", "patience", "grief"],
+      "priority": 2
+    },
+    {
+      "id": "christianity-003",
+      "source": "Bible (ESV)",
+      "citation": "John 14:27",
+      "text_en": "Peace I leave with you; my peace I give to you. Not as the world gives do I give to you. Let not your hearts be troubled, neither let them be afraid.",
+      "text_bn": "আমি তোমাদের কাছে শান্তি রেখে যাই; আমার শান্তি আমি তোমাদের দান করি। পৃথিবী যেমন দেয় আমি তেমন দেই না। তোমাদের অন্তর বিচলিত হবে না, বা ভয় পাবে না।",
+      "context_note": "A gift of peace distinct from circumstances — comfort that holds even when the world is loud. 'Let not your hearts be troubled' spoken as a friend.",
+      "themes": ["fear", "anxiety", "hope"],
+      "priority": 3
+    },
+    {
+      "id": "christianity-004",
+      "source": "Bible (ESV)",
+      "citation": "Philippians 4:6-7",
+      "text_en": "Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds.",
+      "text_bn": "কোনো বিষয়েই চিন্তিত হয়ো না, বরং প্রতিটি বিষয়ে প্রার্থনা ও সাহায্যপ্রার্থনার দ্বারা কৃতজ্ঞতাসহ তোমাদের অনুরোধ ঈশ্বরের কাছে জানাও। তাহলে যে ঈশ্বরের শান্তি সমস্ত বুদ্ধিকে অতিক্রম করে, সে খ্রীষ্ট যীশুতে তোমাদের অন্তর ও তোমাদের চিন্তাকে রক্ষা করবে।",
+      "context_note": "A practical pattern — name what worries you, with gratitude, and let a peace beyond reason guard the heart. Pairs naturally with breath prayer exercises.",
+      "themes": ["anxiety", "fear", "gratitude"],
+      "priority": 4
+    },
+    {
+      "id": "christianity-005",
+      "source": "Bible (ESV)",
+      "citation": "Psalm 34:18",
+      "text_en": "The Lord is near to the brokenhearted and saves the crushed in spirit.",
+      "text_bn": "প্রভু ভগ্নহৃদয়দের নিকটে থাকেন, এবং চূর্ণ আত্মাকে রক্ষা করেন।",
+      "context_note": "A short, direct word for someone whose heart feels broken — the nearness comes first, before the saving. Comfort, not a demand to feel better.",
+      "themes": ["grief", "loneliness", "hope"],
+      "priority": 5
+    }
+  ]
+}

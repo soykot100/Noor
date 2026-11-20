@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "tradition": "Islam",
+    "anchors": "Quran, authenticated Hadith, duas, sabr and shukr",
+    "status": "SAMPLE — Pending Scholar Review",
+    "version": "0.1.0",
+    "last_reviewed": null,
+    "reviewers_required": "1 Islamic scholar + 1 mental-health-literate reviewer",
+    "psychologist_review": "Pending",
+    "note": "These passages are widely published and are included as placeholders so the system can be tested end-to-end. They MUST be verified by qualified scholars before public launch. Do not deploy to real users in this state."
+  },
+  "passages": [
+    {
+      "id": "islam-001",
+      "source": "Quran",
+      "citation": "Surah Ash-Sharh (94:5-6)",
+      "text_en": "For indeed, with hardship will be ease. Indeed, with hardship will be ease.",
+      "text_bn": "নিশ্চয়ই কষ্টের সাথেই রয়েছে স্বস্তি। নিশ্চয়ই কষ্টের সাথেই রয়েছে স্বস্তি।",
+      "context_note": "Spoken to console a heart that feels pressed by difficulty. The verse repeats to stress that ease is not a possibility — it is promised alongside the hardship, not after it.",
+      "themes": ["patience", "hope", "anxiety"],
+      "priority": 1
+    },
+    {
+      "id": "islam-002",
+      "source": "Quran",
+      "citation": "Surah Ar-Ra'd (13:28)",
+      "text_en": "Those who believe and whose hearts find rest in the remembrance of Allah. Now surely in Allah's remembrance do hearts find rest.",
+      "text_bn": "যারা ঈমান এনেছে এবং যাদের অন্তর আল্লাহর স্মরণে প্রশান্তি লাভ করে। জেনে রেখো, আল্লাহর স্মরণেই অন্তরসমূহ প্রশান্তি পায়।",
+      "context_note": "Points to remembrance (dhikr) as a path to inner calm. Offered as comfort, never as a claim that distress reflects weak faith.",
+      "themes": ["anxiety", "fear", "patience"],
+      "priority": 2
+    },
+    {
+      "id": "islam-003",
+      "source": "Quran",
+      "citation": "Surah At-Talaq (65:3)",
+      "text_en": "And whoever places their trust in Allah, He is sufficient for them.",
+      "text_bn": "এবং যে আল্লাহর ওপর ভরসা করে, তার জন্য তিনিই যথেষ্ট।",
+      "context_note": "An invitation to entrust one's worries to a caring presence rather than carry them alone. Not a substitute for human help in crisis.",
+      "themes": ["fear", "anxiety", "hope"],
+      "priority": 3
+    },
+    {
+      "id": "islam-004",
+      "source": "Quran",
+      "citation": "Surah Ghafir (40:60)",
+      "text_en": "Call upon Me; I will respond to you.",
+      "text_bn": "তোমরা আমাকে ডাকো, আমি তোমাদের ডাকে সাড়া দেব।",
+      "context_note": "A short, direct reassurance that the call itself is heard. Companion to duas of supplication, not a substitute for professional support.",
+      "themes": ["loneliness", "hope", "fear"],
+      "priority": 4
+    },
+    {
+      "id": "islam-005",
+      "source": "Dua (supplication)",
+      "citation": "Dua for anxiety and sorrow (Sunan Abi Dawud 1555)",
+      "text_en": "O Allah, I seek refuge in You from anxiety and sorrow, from incapacity and laziness, from cowardice and miserliness, from being overcome by debt and the oppression of men.",
+      "text_bn": "হে আল্লাহ, আমি আপনার কাছে আশ্রয় চাই চিন্তা ও দুঃখ থেকে, অক্ষমতা ও অলসতা থেকে, ভীরুতা ও কৃপণতা থেকে, ঋণের বোঝা ও মানুষের জুলুম থেকে।",
+      "context_note": "A traditional dua naming worry and sadness directly — acknowledging they are real, not signs of weak faith. Recorded in Sunan Abi Dawud.",
+      "themes": ["anxiety", "grief", "fear"],
+      "priority": 5
+    },
+    {
+      "id": "islam-006",
+      "source": "Quran",
+      "citation": "Surah Al-Baqarah (2:152)",
+      "text_en": "So remember Me; I will remember you. And be grateful to Me, and do not deny Me.",
+      "text_bn": "অতএব তোমরা আমাকে স্মরণ করো, আমি তোমাদের স্মরণ করব। আর তোমরা আমার কৃতজ্ঞতা প্রকাশ করো, অকৃতজ্ঞ হয়ো না।",
+      "context_note": "Links remembrance and gratitude as mutual — a small daily practice, not a demand for constant positivity.",
+      "themes": ["gratitude", "hope", "patience"],
+      "priority": 6
+    }
+  ]
+}

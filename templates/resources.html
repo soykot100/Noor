@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Noor · সাহায্য · Resources{% endblock %}
+
+{% block content %}
+<section class="page-head" id="crisis">
+  <h1>
+    <span class="bn">সাহায্য ও হেল্পলাইন</span>
+    <span class="en">Help & helplines</span>
+  </h1>
+  <p class="muted">
+    <span class="bn">সব নম্বর প্রকাশ্য সূত্র থেকে যাচাই করা। একটাও বানানো নয়।</span>
+    <span class="en">Every number is verified against public sources. None are invented.</span>
+  </p>
+  {% if verified_date %}
+  <p class="muted small">
+    <span class="verified-badge">
+      <span class="bn">সর্বশেষ যাচাই: {{ verified_date }}</span>
+      <span class="en">Last verified: {{ verified_date }}</span>
+    </span>
+    <span class="bn"> · ত্রৈমাসিক পুনরায় যাচাই হয়।</span>
+    <span class="en"> · re-verified quarterly.</span>
+  </p>
+  {% endif %}
+</section>
+
+<!-- Emergency -->
+<section class="res-cat">
+  <h2 class="section-title crisis-title">
+    <span class="bn">জরুরি</span><span class="en">Emergency</span>
+  </h2>
+  {% for h in emergency %}
+  <article class="res-card card crisis-card">
+    <h3>{{ h.name }}</h3>
+    <p class="res-phone">
+      <a href="tel:{{ h.phone }}">📞 {{ h.phone }}</a>
+      <span class="res-hours">{{ h.hours }}</span>
+    </p>
+    <p class="bn">{{ h.note_bn }}</p>
+    <p class="en">{{ h.note_en }}</p>
+    {% if h.verified_date %}<span class="verified-badge"><span class="bn">যাচাই: {{ h.verified_date }}</span><span class="en">verified: {{ h.verified_date }}</span></span>{% endif %}
+  </article>
+  {% endfor %}
+</section>
+
+<!-- Mental health helplines -->
+<section class="res-cat">
+  <h2 class="section-title">
+    <span class="bn">মানসিক স্বাস্থ্য হেল্পলাইন</span><span class="en">Mental-health helplines</span>
+  </h2>
+  <div class="res-grid">
+    {% for h in helplines %}
+    <article class="res-card card">
+      <h3>{{ h.name }}</h3>
+      <p class="res-phone">
+        {% for p in h.phones %}
+          <a href="tel:{{ p }}">📞 {{ p }}</a>{% if not loop.last %} · {% endif %}
+        {% endfor %}
+      </p>
+      <p class="res-hours">{{ h.hours }}</p>
+      <p class="muted small"><strong>{{ h.for_whom }}</strong></p>
+      <p class="bn">{{ h.note_bn }}</p>
+      <p class="en">{{ h.note_en }}</p>
+      <div class="ex-themes">{% for t in h.tags %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+      <p class="muted micro">source: {{ h.source }}</p>
+      {% if h.verified_date %}<span class="verified-badge"><span class="bn">যাচাই: {{ h.verified_date }}</span><span class="en">verified: {{ h.verified_date }}</span></span>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Long-term -->
+<section class="res-cat">
+  <h2 class="section-title">
+    <span class="bn">দীর্ঘমেয়াদি সহায়তা</span><span class="en">Longer-term options</span>
+  </h2>
+  {% for h in long_term %}
+  <article class="res-card card">
+    <h3>{{ h.name }}</h3>
+    <p class="muted small"><strong>{{ h.location }}</strong></p>
+    <p class="bn">{{ h.note_bn }}</p>
+    <p class="en">{{ h.note_en }}</p>
+    <p class="muted micro">source: {{ h.source }}</p>
+  </article>
+  {% endfor %}
+</section>
+
+<div class="res-note card">
+  <p class="bn">
+    <strong>মনে রাখুন:</strong> এই নম্বরগুলো ফ্রি ও গোপনীয়। ভয় পাওয়ার কিছু নেই।
+    কথা বলতে অভ্যস্ত না হলেও কল করুন — তারা শুনবে।
+  </p>
+  <p class="en">
+    <strong>Remember:</strong> these numbers are free and confidential.
+    If you're not used to talking about it, call anyway — they listen.
+  </p>
+</div>
+{% endblock %}

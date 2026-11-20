@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="{{ lang or 'bn' }}" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Noor — একটি ফ্রি, গোপনীয়, ওয়েব-ভিত্তিক AI সঙ্গী। আপনার মন আজ কেমন? Bangla + English.">
+  <meta name="theme-color" content="#7BA098">
+
+  <!-- PWA -->
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/icon-192.svg') }}">
+
+  <!-- Bangla + English web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>{% block title %}Noor — আপনার মন আজ কেমন?{% endblock %}</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Always-visible crisis button. Top bar, never hidden, one tap to helplines. -->
+  <a href="{{ url_for('noor.resources_page') }}#crisis" class="crisis-pill" id="crisisPill"
+     aria-label="আমি এখন সাহায্য চাই — হেল্পলাইন দেখুন / I need help now — see helplines">
+    <span class="crisis-dot"></span>
+    <span class="crisis-text">
+      <span class="bn">সাহায্য দরকার? হেল্পলাইন</span>
+      <span class="en">Need help? Helplines</span>
+    </span>
+  </a>
+
+  <header class="topbar">
+    <nav class="nav container">
+      <a href="{{ url_for('noor.index') }}" class="brand" aria-label="Noor home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" role="img" aria-hidden="true">
+            <circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+            <path d="M16 5a11 11 0 0 0 0 22 8 8 0 0 1 0-22z" fill="currentColor" opacity=".8"/>
+          </svg>
+        </span>
+        <span class="brand-word">Noor</span>
+        <span class="brand-sub">নূর</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{{ url_for('noor.chat') }}" class="nav-link">কথা বলুন · Chat</a></li>
+        <li><a href="{{ url_for('noor.breathe_page') }}" class="nav-link">শ্বাস · Breathe</a></li>
+        <li><a href="{{ url_for('noor.exercises_page') }}" class="nav-link">অনুশীলন · Exercises</a></li>
+        <li><a href="{{ url_for('noor.mood_page') }}" class="nav-link">মুড · Mood</a></li>
+        <li><a href="{{ url_for('noor.resources_page') }}" class="nav-link">সাহায্য · Resources</a></li>
+        <li><a href="{{ url_for('noor.settings_page') }}" class="nav-link">সেটিংস · Settings</a></li>
+        <li><a href="{{ url_for('noor.about') }}" class="nav-link">পরিচিতি · About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-line">
+        <strong>Noor</strong> — ফ্রি, গোপনীয়, বিচারহীন। থেরাপিস্ট বা ইমার্জেন্সি সার্ভিসের বিকল্প নয়।<br>
+        Free, anonymous, non-judgmental. Not a replacement for a therapist or emergency services.
+      </p>
+      <p class="footer-sub">
+        আপনার সব কথা আপনার ব্রাউজারেই থাকে — আমরা সংরক্ষণ করি না।
+        · Your words stay in your browser — we do not store them.
+      </p>
+      {% if demo_mode %}
+      <p class="footer-demo">
+        ⚠️ <strong>DEMO mode</strong> — কোনো LLM key লোড হয়নি। এখন সহানুভূতিশীল ফলব্যাক উত্তর দিচ্ছে (তাই একই ধরনের উত্তর আসতে পারে)।
+        · No LLM key loaded — empathetic fallback is active (replies may repeat).
+        <br>
+        <a href="{{ url_for('noor.settings_page') }}#llm">সেটিংসে গিয়ে key যাচাই করুন</a>
+        · <a href="/api/debug">/api/debug</a>
+      </p>
+      {% else %}
+      <p class="footer-live">
+        ✓ <strong>LIVE</strong> — {{ llm_provider }}/{{ llm_model }}
+        · <a href="/api/llm-test" target="_blank">এখানে টেস্ট করুন · test now</a>
+      </p>
+      {% endif %}
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

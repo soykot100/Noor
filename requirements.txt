@@ -1,0 +1,18 @@
+# Flask
+Flask==3.0.3
+gunicorn==22.0.0
+
+# OpenAI / LLM (provider-agnostic — works with Groq, OpenAI, Together, etc.)
+openai==1.51.0
+# Pin httpx below 0.28: openai 1.51 passes `proxies` to httpx, which was
+# removed in httpx 0.28. Without this pin the OpenAI() client raises
+# "unexpected keyword argument 'proxies'" and every LLM call fails.
+httpx==0.27.2
+
+# Utilities
+python-dotenv==1.0.1
+requests==2.32.3
+
+# Production WSGI is gunicorn above.
+# No database required for the MVP: the app is truly anonymous.
+# All user data (chat history, mood) stays in the browser via localStorage.
